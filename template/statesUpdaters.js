@@ -1,4 +1,8 @@
-define(['./apiCalls.js', './statesManager.js', './renders.js'], function (apiCalls, statesManager, renders) {
+const apiCalls = require('./apiCalls.js')
+const statesManager = require('./statesManager.js')
+const renders = require('./renders.js')
+
+export default function () {
     const {
         createAccount,
         createLicence,
@@ -9,9 +13,9 @@ define(['./apiCalls.js', './statesManager.js', './renders.js'], function (apiCal
         createWidget,
         getInstallation,
     } = apiCalls
-    const { renderModal } = renders
+    const {renderModal} = renders
 
-    const { widgetId, accountId, licenceStatus, firstInit, installationInfo, widgetInfo, widgetParams } = statesManager
+    const {widgetId, accountId, licenceStatus, firstInit, installationInfo, widgetInfo, widgetParams} = statesManager
 
     async function updateInstallationInfo() {
         let installation = await getInstallation(accountId(), widgetId())
@@ -75,6 +79,7 @@ define(['./apiCalls.js', './statesManager.js', './renders.js'], function (apiCal
         }
         accountId((account.data[0] || account.data).id)
     }
+
     async function updateLicenceStatus() {
         const licenseInfo = await getLicence(widgetId(), accountId())
 
@@ -85,7 +90,7 @@ define(['./apiCalls.js', './statesManager.js', './renders.js'], function (apiCal
                 data: licenseInfo.data,
             })
         } else if (licenseInfo.msg && licenseInfo.msg.includes('expired')) {
-            licenceStatus({ exist: false, expired: true, data: null })
+            licenceStatus({exist: false, expired: true, data: null})
         } else {
             const licenceInfo = await createLicence(widgetId(), accountId(), true)
             licenceStatus({
@@ -99,6 +104,7 @@ define(['./apiCalls.js', './statesManager.js', './renders.js'], function (apiCal
     async function updateFirstInit() {
         firstInit(false)
     }
+
     return {
         updateAccountId,
         updateWidgetId,
@@ -106,4 +112,4 @@ define(['./apiCalls.js', './statesManager.js', './renders.js'], function (apiCal
         updateFirstInit,
         updateInstallationInfo,
     }
-})
+}

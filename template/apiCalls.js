@@ -1,4 +1,6 @@
-define(['./constants.js'], function (constants) {
+const  constants  = require('./constants.js')
+
+export default function () {
     const { ROOT_URL } = constants
 
     async function getPayment(invId) {
@@ -176,4 +178,4 @@ define(['./constants.js'], function (constants) {
         getInstallation,
         updateInstallation,
     }
-})
+}

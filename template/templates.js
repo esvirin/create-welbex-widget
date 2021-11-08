@@ -1,4 +1,4 @@
-define([], function () {
+export default function () {
 	return {
 		licenceIsExpiredTemplate: () => {
 			return '<div class="licence-status" style="background-color: red">Лицензия истекла</div>'
@@ -45,4 +45,4 @@ define([], function () {
 			</div>
         `
 	}
-})
+}

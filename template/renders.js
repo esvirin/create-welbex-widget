@@ -1,4 +1,8 @@
-define([/*'lib/components/base/modal',*/ './apiCalls.js', './statesManager.js'], function (/*Modal,*/ apiCalls, statesManager) {
+const apiCalls = require('./apiCalls.js')
+const statesManager = require('./statesManager.js')
+// const Modal = define('lib/components/base/modal')
+
+export default function () {
     const {createLicence} = apiCalls
     const {widgetId, accountId, widgetInfo, licenceStatus, widgetSettings} = statesManager
 
@@ -76,4 +80,5 @@ define([/*'lib/components/base/modal',*/ './apiCalls.js', './statesManager.js'],
     }
 
     return {renderContentInSettings, renderModal, renderPaymentBlock, renderCommentOfferModal}
-})
+}
+

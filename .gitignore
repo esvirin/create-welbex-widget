@@ -71,19 +71,10 @@ typings/
 # dotenv environment variables file
 .env.test
 
-# parcel-bundler cache (https://parceljs.org/)
-.cache
-
-# Next.js build output
-.next
 
 # Nuxt.js build / generate output
 .nuxt
-dist
-prod
-widget
 
-core/static
 
 # Gatsby files
 .cache/
@@ -105,3 +96,11 @@ core/static
 
 # TernJS port file
 .tern-port
+
+# Production files and archives
+.idea
+dist
+prod
+widget
+core/static
+widget.zip

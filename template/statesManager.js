@@ -1,4 +1,4 @@
-define([], function () {
+export default function () {
     const states = {}
 
     function createState(name, initialValue) {
@@ -16,4 +16,4 @@ define([], function () {
     createState('widgetSettings', {})
     createState('widgetParams', null)
     return states
-})
+}
