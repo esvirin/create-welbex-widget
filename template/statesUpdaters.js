@@ -1,8 +1,4 @@
-const apiCalls = require('./apiCalls.js')
-const statesManager = require('./statesManager.js')
-const renders = require('./renders.js')
-
-export default function () {
+define(['./apiCalls.js', './statesManager.js', './renders.js'], function (apiCalls, statesManager, renders) {
     const {
         createAccount,
         createLicence,
@@ -13,9 +9,9 @@ export default function () {
         createWidget,
         getInstallation,
     } = apiCalls
-    const {renderModal} = renders
+    const { renderModal } = renders
 
-    const {widgetId, accountId, licenceStatus, firstInit, installationInfo, widgetInfo, widgetParams} = statesManager
+    const { widgetId, accountId, licenceStatus, firstInit, installationInfo, widgetInfo, widgetParams } = statesManager
 
     async function updateInstallationInfo() {
         let installation = await getInstallation(accountId(), widgetId())
@@ -79,7 +75,6 @@ export default function () {
         }
         accountId((account.data[0] || account.data).id)
     }
-
     async function updateLicenceStatus() {
         const licenseInfo = await getLicence(widgetId(), accountId())
 
@@ -90,7 +85,7 @@ export default function () {
                 data: licenseInfo.data,
             })
         } else if (licenseInfo.msg && licenseInfo.msg.includes('expired')) {
-            licenceStatus({exist: false, expired: true, data: null})
+            licenceStatus({ exist: false, expired: true, data: null })
         } else {
             const licenceInfo = await createLicence(widgetId(), accountId(), true)
             licenceStatus({
@@ -104,7 +99,6 @@ export default function () {
     async function updateFirstInit() {
         firstInit(false)
     }
-
     return {
         updateAccountId,
         updateWidgetId,
@@ -112,4 +106,4 @@ export default function () {
         updateFirstInit,
         updateInstallationInfo,
     }
-}
+})

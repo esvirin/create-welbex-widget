@@ -1,10 +1,6 @@
-const apiCalls = require('./apiCalls.js')
-const statesManager = require('./statesManager.js')
-// const Modal = define('lib/components/base/modal')
-
-export default function () {
-    const {createLicence} = apiCalls
-    const {widgetId, accountId, widgetInfo, licenceStatus, widgetSettings} = statesManager
+define(['lib/components/base/modal', './apiCalls.js', './statesManager.js'], function (Modal, apiCalls, statesManager) {
+    const { createLicence } = apiCalls
+    const { widgetId, accountId, widgetInfo, licenceStatus, widgetSettings } = statesManager
 
     function renderContentInSettings(template) {
         const contentWrapper = document.querySelector('.widget-content-wrapper')
@@ -16,27 +12,26 @@ export default function () {
         paymentWrapper.innerHTML = template
     }
 
-    // function renderModal(msg) {
-    //     new Modal({
-    //         class_name: 'modal-window',
-    //         init: function ($modal_body) {
-    //             $modal_body.trigger('modal:loaded').html(msg).trigger('modal:centrify').append('')
-    //         },
-    //         destroy: function () {},
-    //     })
-    // }
+    function renderModal(msg) {
+        modal = new Modal({
+            class_name: 'modal-window',
+            init: function ($modal_body) {
+                $modal_body.trigger('modal:loaded').html(msg).trigger('modal:centrify').append('')
+            },
+            destroy: function () {},
+        })
+    }
 
     function renderCommentOfferModal(message) {
-        // renderModal(
-        //     `
-        // 		<p>
-        // 			Оставьте отзыв на виджет ${widgetInfo().name} ${message}
-        // 		</p>
-        // 		<button class="button-input button-input_blue comment-offer">Оставить отзыв</button>
-        // 	`
-        // )
+        renderModal(
+            `
+				<p>
+					Оставьте отзыв на виджет ${widgetInfo().name} ${message}
+				</p>
+				<button class="button-input button-input_blue comment-offer">Оставить отзыв</button>
+			`
+        )
         const commentOfferBtn = document.querySelector('.comment-offer')
-
         async function onCommentOfferBtnClick() {
             document.querySelector('.modal-scroller').click()
 
@@ -50,7 +45,6 @@ export default function () {
 
                 const widgetInfoBlock = document.querySelector('.widget-settings__additional-block')
                 const observer = new MutationObserver(giveLicence)
-
                 async function giveLicence() {
                     if (widgetInfoBlock.querySelector('.widget-additional-info__edit-review')) {
                         const endDateOfTestLicence = new Date(licenceStatus().data.date_end).getTime()
@@ -70,15 +64,13 @@ export default function () {
                     observer.disconnect()
                 }
 
-                observer.observe(widgetInfoBlock, {childList: true})
+                observer.observe(widgetInfoBlock, { childList: true })
             }
 
             commentOfferBtn.removeEventListener('click', onCommentOfferBtnClick)
         }
-
         commentOfferBtn.addEventListener('click', onCommentOfferBtnClick)
     }
 
-    return {renderContentInSettings, renderModal, renderPaymentBlock, renderCommentOfferModal}
-}
-
+    return { renderContentInSettings, renderModal, renderPaymentBlock, renderCommentOfferModal }
+})

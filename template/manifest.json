@@ -13,12 +13,19 @@
             "email": "support@amocrm.com"
         }
     },
-    "locations": ["lcard-1", "settings"],
+    "locations": [
+		"lcard-0", 
+		"settings", 
+		"advanced_settings"
+    ],
     "settings": {
         "nothing": {
             "name": "settings.nothing",
             "type": "custom",
             "required": false
         }
-    }
+    },
+	"advanced": {
+		"title": "advanced.title"
+  }
 }

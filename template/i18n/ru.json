@@ -6,6 +6,10 @@
         "tour_description": "Описание виджета"
     },
     "settings": {
-        "nothing": "Ничто"
+        "nothing": "Ничто",
+        "settings": "settings"
+    },
+    "advanced": {
+        "title": "Мой виджет"
     }
 }

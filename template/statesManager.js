@@ -1,10 +1,11 @@
-export default function () {
+define([], function () {
     const states = {}
 
     function createState(name, initialValue) {
         let value = initialValue
-	    states[name] = (setter) =>
-	        setter ? (typeof setter === 'function' ? (value = setter(value)) : (value = setter)) : value
+        const state = (setter) =>
+            setter ? (typeof setter === 'function' ? (value = setter(value)) : (value = setter)) : value
+        states[name] = state
     }
 
     createState('widgetId', null)
@@ -16,4 +17,4 @@ export default function () {
     createState('widgetSettings', {})
     createState('widgetParams', null)
     return states
-}
+})

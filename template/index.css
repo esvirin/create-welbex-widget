@@ -21,6 +21,54 @@
   background-color: gainsboro;
 }
 
+/* common */
+.welbex__main-loader {
+  z-index: 30;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.welbex-text {
+  font-family: Euclid Circular A, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  color: #253e5c;
+}
+
+.welbex__accent-button {
+  cursor: pointer;
+  color: #fff;
+  background: #4c8bf7;
+  border-radius: 6px;
+  padding: 8px 12px;
+}
+
+/* inputs */
+
+.welbex_ad_settings__form-label {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.welbex_ad_settings__textarea {
+  box-sizing: border-box;
+  min-height: 90px;
+  overflow: auto;
+  resize: none;
+}
+
+/*payment styles*/
+
 .widget-content-wrapper {
   position: relative;
 }
@@ -72,6 +120,10 @@
   transition: transform 0.3s ease-out 0s;
 }
 
+#payment__tariffs__item.--moreTariffs {
+  width: 100px;
+}
+
 .payment__tariffs #payment__tariffs__item.payment__tariffs__item:hover {
   border: none !important;
 }
@@ -89,26 +141,16 @@
   transition: left 0.3s ease-out 0s;
 }
 
-.payment__tariffs__current {
-  box-sizing: border-box;
-  position: absolute;
-  top: 31px;
-  width: 127px;
-  height: 195px;
-  outline: 2px solid #749e42;
-  z-index: 1;
-  margin-top: 0;
-  transform: translate(312px);
-  -webkit-transition: transform 0.3s ease-out 0s;
-  transition: transform 0.3s ease-out 0s;
-}
-
 .payment__tariffs__item__title {
   position: relative;
   margin-bottom: 50px;
   text-align: center;
   font-size: 18px;
   color: #2e3640;
+}
+
+.payment__tariffs__item__title.--moreTariffs {
+  font-size: 16px;
 }
 
 .payment__tariffs__item__title::before {
@@ -150,8 +192,16 @@
   text-align: center;
 }
 
+.payment .payment__tariffs__item__description.--moreTariffs {
+  font-size: 16px;
+}
+
 .payment__tariffs__item__price {
   font-size: 15px;
+}
+
+.payment__tariffs__item__price.--moreTariffs {
+  font-size: 14px;
 }
 
 .payment__info {
@@ -186,5 +236,745 @@
 }
 
 .payment__buy-btn:hover {
+  background-color: #3c7dec;
+}
+
+/* settings styles */
+
+.welbex_ad_settings__caption-wrapper {
+  box-sizing: border-box;
+  height: 71px;
+  padding: 26px 28px 22px;
+  background-color: #ffffff;
+  border-bottom: 2px solid #eeeff1;
+}
+
+.welbex_ad_settings__caption {
+  font-family: Euclid Circular A, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 23px;
+  color: #253e5c;
+}
+
+.welbex_ad_settings {
+  box-sizing: border-box;
+  background: #fbfcfe;
+  margin: -64px -25px -65px;
+  position: relative;
+  z-index: 100;
+  min-height: 100vh;
+}
+
+.welbex_ad_settings__menu {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  min-height: 62px;
+  padding-left: 28px;
+  padding-right: 10px;
+  background: #ffffff;
+  box-shadow: 0px 4px 4px #f4f6f7;
+}
+
+.welbex_ad_settings__menu-list,
+.welbex_ad_settings__submenu-list {
+  box-sizing: border-box;
+  display: flex;
+  list-style: none;
+}
+
+.welbex_ad_settings__menu-item {
+  box-sizing: border-box;
+  position: relative;
+}
+
+.welbex_ad_settings__menu-item:not(:last-child) {
+  margin-right: 30px;
+}
+
+.welbex_ad_settings__menu-btn {
+  box-sizing: border-box;
+  padding: 15px 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  border: none;
+  background-color: #ffffff;
+}
+
+.welbex_ad_settings__menu-btn svg {
+  pointer-events: none;
+}
+
+.welbex_ad_settings__menu-btn-icon {
+  box-sizing: border-box;
+  cursor: pointer;
+  width: 26px;
+  height: 26px;
+  margin-right: 3px;
+  stroke: #97adca;
+  transition: stroke 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.welbex_ad_settings__menu-btn-icon.icon-payment {
+  stroke: transparent;
+}
+
+.welbex_ad_settings__menu-nav--underline {
+  position: absolute;
+  width: 103px;
+  height: 3px;
+  left: 28px;
+  top: 130px;
+  z-index: 1000;
+  background: #109cf1;
+  border-radius: 6px 6px 0px 0px;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.welbex_ad_settings__submenu-nav--underline {
+  position: absolute;
+  width: 82px;
+  height: 2px;
+  left: 28px;
+  top: 179px;
+  z-index: 1000;
+  background: #9bb7d7;
+  border-radius: 6px;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.welbex_ad_settings__menu-btn:hover .welbex_ad_settings__menu-btn-icon,
+.welbex_ad_settings__menu-btn.--active .welbex_ad_settings__menu-btn-icon {
+  stroke: #109cf1;
+}
+
+.welbex_ad_settings__menu-btn-text {
+  pointer-events: none;
+  font-family: Euclid Circular A, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #546982;
+  transition: color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.welbex_ad_settings__menu-btn:hover .welbex_ad_settings__menu-btn-text,
+.welbex_ad_settings__menu-btn.--active .welbex_ad_settings__menu-btn-text {
+  font-weight: 500;
+  color: #253e5c;
+}
+
+.welbex_ad_settings__menu-subscription {
+  box-sizing: border-box;
+  width: 173px;
+  height: 53px;
+  background-color: #ebffee;
+  border-radius: 6px;
+  padding: 6px;
+}
+
+.welbex_ad_settings__menu-subscription-text {
+  margin: 0;
+  font-family: Euclid Circular A, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 1.25;
+  text-align: right;
+  color: #26643b;
+}
+
+.welbex_ad_settings__submenu-wrapper {
+  box-sizing: border-box;
+  min-height: 48px;
+  background: transparent;
+  padding: 0 30px;
+  border-bottom: 2px solid #eeeff1;
+}
+
+.welbex_ad_settings__submenu-item {
+  position: relative;
+}
+
+.welbex_ad_settings__submenu-item:not(:last-child) {
+  margin-right: 36px;
+}
+
+.welbex_ad_settings__submenu-btn {
+  box-sizing: border-box;
+  padding: 13px 0;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+.welbex_ad_settings__submenu-btn-text {
+  pointer-events: none;
+  font-family: Euclid Circular A, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #546982;
+  background-color: #fbfcfe;
+  transition: color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.welbex_ad_settings__submenu-btn.--active .welbex_ad_settings__submenu-btn-text,
+.welbex_ad_settings__submenu-btn:hover .welbex_ad_settings__submenu-btn-text {
+  color: #253e5c;
+}
+
+.welbex_ad_settings__body {
+  padding: 30px;
+}
+
+.welbex_ad_settings__body-title {
+  margin-bottom: 14px;
+  font-family: Euclid Circular A, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #253e5c;
+}
+
+.welbex_ad_settings__settings-block-wrapper {
+  margin-bottom: 40px;
+}
+
+.welbex_ad_settings__settings-box-wrapper {
+  box-sizing: border-box;
+  background: #ffffff;
+  box-shadow: 0px -10px 21px rgb(133 146 170 / 6%),
+    0px -2px 7px rgb(133 146 170 / 6%), 0px -1px 2px rgb(133 146 170 / 6%),
+    0px 10px 21px rgb(133 146 170 / 6%), 0px 2px 7px rgb(133 146 170 / 6%),
+    0px 0px 2px rgb(133 146 170 / 6%);
+  border-radius: 6px;
+  padding: 20px;
+}
+
+.select-type__wrapper {
+  position: relative;
+}
+
+.select-type__icon-wrapper {
+  position: absolute;
+  right: 2px;
+  top: 6px;
+  height: 20px;
+  width: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  pointer-events: none;
+}
+
+.icon-delete {
+  stroke: #f26e6e;
+}
+
+.welbex_ad_settings__checkboxes .control--select {
+  box-sizing: border-box;
+  width: 687px;
+  min-height: 52px;
+  margin-bottom: 10px;
+  background: rgb(255, 255, 255);
+  box-shadow: rgb(133 146 170 / 6%) 0px -10px 21px,
+    rgb(133 146 170 / 6%) 0px -2px 7px, rgb(133 146 170 / 6%) 0px -1px 2px,
+    rgb(133 146 170 / 6%) 0px 10px 21px, rgb(133 146 170 / 6%) 0px 2px 7px,
+    rgb(133 146 170 / 6%) 0px 0px 2px;
+  border-radius: 6px;
+
+  font-family: Euclid Circular A, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #546982;
+}
+
+.welbex_ad_settings__checkboxes .control--select--button {
+  padding-left: 22px;
+  border: none;
+  cursor: pointer;
+}
+
+.welbex_ad_settings__checkboxes-wrapper {
+  box-sizing: border-box;
+  padding: 16px 24px;
+}
+
+.welbex_ad_settings__checkboxes-wrapper > div:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.welbex_ad_settings__checkboxes-wrapper .control-checkbox input {
+  cursor: pointer;
+}
+.welbex_ad_settings__checkboxes .control-checkbox__text.element__text {
+  font-family: Euclid Circular A, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  color: #253e5c;
+}
+
+.welbex_ad_settings__checkboxes .control-checkbox__helper {
+  border: 1px solid #beceed;
+  box-sizing: border-box;
+  border-radius: 6px;
+  height: 20px;
+  width: 20px;
+}
+
+.welbex_ad_settings__checkboxes .checkbox {
+  width: 20px;
+  height: 20px;
+}
+
+.welbex_ad_settings .control--select--button::after {
+  width: 0;
+  height: 0;
+  border: none;
+}
+
+.welbex_ad_settings {
+  --border-shadow: 0px -10px 21px rgb(133 146 170 / 6%),
+    0px -2px 7px rgb(133 146 170 / 6%), 0px -1px 2px rgb(133 146 170 / 6%),
+    0px 10px 21px rgb(133 146 170 / 6%), 0px 2px 7px rgb(133 146 170 / 6%),
+    0px 0px 2px rgb(133 146 170 / 6%);
+}
+
+/* мультисписок - выпадайка с чекбоксами */
+.welbex__dropdown-checkboxes {
+  width: 200px;
+}
+
+.welbex__dropdown-checkboxes .checkboxes_dropdown__title_wrapper {
+  border: none;
+  box-sizing: border-box;
+  background: #ffffff;
+  box-shadow: var(--border-shadow);
+  border-radius: 6px;
+  padding: 8px 8px 8px 35px;
+  font-family: Euclid Circular A, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  color: #546982;
+}
+
+.welbex__dropdown-checkboxes.expanded .checkboxes_dropdown__title_wrapper {
+  box-shadow: none;
+}
+
+.welbex__dropdown-checkboxes.expanded .checkboxes_dropdown__list {
+  position: absolute;
+  box-sizing: border-box;
+  max-height: 200px;
+  min-width: fit-content;
+  min-width: intrinsic;
+  min-width: -moz-max-content;
+  width: 100%;
+  border: none;
+  background: #ffffff;
+  box-shadow: var(--border-shadow);
+  border-radius: 6px;
+}
+
+.welbex__dropdown-checkboxes span.control-checkbox__helper {
+  border: 1px solid #beceed;
+  box-sizing: border-box;
+  border-radius: 6px;
+  height: 20px;
+  width: 20px;
+}
+
+.welbex__dropdown-checkboxes
+  .control-checkbox__text.checkboxes_dropdown__label_title {
+  font-family: Euclid Circular A, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 16px;
+  color: #546982;
+}
+
+.welbex__dropdown-checkboxes
+  .checkboxes_dropdown__item:first-child
+  .checkboxes_dropdown__label {
+  padding-top: 8px;
+}
+.welbex__dropdown-checkboxes .control-checkbox.checkboxes_dropdown__label {
+  display: flex;
+  align-items: flex-start;
+  padding: 4px 8px;
+}
+.welbex__dropdown-checkboxes
+  .checkboxes_dropdown__item:last-child
+  .checkboxes_dropdown__label {
+  padding-bottom: 8px;
+}
+
+.welbex__dropdown-checkboxes .checkboxes_dropdown_icon.icon-up-arrow:after,
+.welbex__dropdown-checkboxes .checkboxes_dropdown_icon:after {
+  width: 10px;
+  height: 8px;
+  border: none;
+  background: url(./icons/arrow-down.svg) no-repeat right center / cover;
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+  top: calc(50% - 5px);
+}
+
+.welbex__dropdown-checkboxes .checkboxes_dropdown_icon:after {
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+
+/*форма*/
+
+.form-label:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+textarea {
+  box-shadow: rgb(133 146 170 / 6%) 0px -10px 21px,
+    rgb(133 146 170 / 6%) 0px -2px 7px, rgb(133 146 170 / 6%) 0px -1px 2px,
+    rgb(133 146 170 / 6%) 0px 10px 21px, rgb(133 146 170 / 6%) 0px 2px 7px,
+    rgb(133 146 170 / 6%) 0px 0px 2px;
+  border-radius: 6px;
+}
+
+/* Выпадающий список */
+
+.welbex_ad_settings__checkboxes-select-wrapper .control--select {
+  box-sizing: border-box;
+  width: 687px;
+  min-height: 52px;
+  margin-bottom: 10px;
+  background: rgb(255, 255, 255);
+  box-shadow: rgb(133 146 170 / 6%) 0px -10px 21px,
+    rgb(133 146 170 / 6%) 0px -2px 7px, rgb(133 146 170 / 6%) 0px -1px 2px,
+    rgb(133 146 170 / 6%) 0px 10px 21px, rgb(133 146 170 / 6%) 0px 2px 7px,
+    rgb(133 146 170 / 6%) 0px 0px 2px;
+  border-radius: 6px;
+
+  font-family: Euclid Circular A, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #546982;
+}
+
+.welbex_ad_settings__checkboxes-select-wrapper
+  .control--select--list--item.control--select--list--item-selected {
+  background: #dfebf9;
+  border-radius: 6px 6px 0px 0px;
+}
+.welbex_ad_settings__checkboxes-select-wrapper
+  .control--select--list--item.control--select--list--item:hover {
+  background: #dfebf9;
+  border-radius: 6px 6px 0px 0px;
+}
+.welbex_ad_settings__checkboxes-select-wrapper
+  .control--select--list--item:last-child.control--select--list--item-selected {
+  border-radius: 0px 0px 6px 6px;
+}
+
+.welbex_ad_settings__checkboxes-select-wrapper
+  .custom-scroll.control--select--list-opened {
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  top: 106%;
+  height: fit-content;
+  height: intrinsic;
+  height: -moz-max-content;
+  background: #ffffff;
+  box-shadow: 0px -10px 21px rgba(133, 146, 170, 0.06),
+    0px -2px 7px rgba(133, 146, 170, 0.06),
+    0px -1px 2px rgba(133, 146, 170, 0.06),
+    0px 10px 21px rgba(133, 146, 170, 0.06),
+    0px 2px 7px rgba(133, 146, 170, 0.06), 0px 0px 2px rgba(133, 146, 170, 0.06);
+  border-radius: 6px;
+}
+
+.welbex_ad_settings .control--select--button::after {
+  width: 0;
+  height: 0;
+  border: none;
+}
+
+.welbex_ad_settings__checkboxes-select-wrapper {
+  position: relative;
+  width: fit-content;
+  width: intrinsic;
+  width: -moz-max-content;
+}
+
+.welbex_ad_settings__checkboxes-select-wrapper .select-user__icon-down {
+  position: absolute;
+  top: 50%;
+  right: 30px;
+  transform: translateY(-50%);
+  z-index: 30;
+  pointer-events: none;
+}
+
+/*settings page payment styles*/
+
+.welbex_ad_settings__page__payment {
+  display: none;
+  height: 100vh;
+  position: relative;
+}
+
+.welbex-settings__payment-page {
+  padding: 20px;
+  padding-right: 60px;
+  background: #ffffff;
+  box-shadow: 0px -10px 21px rgb(133 146 170 / 6%),
+    0px -2px 7px rgb(133 146 170 / 6%), 0px -1px 2px rgb(133 146 170 / 6%),
+    0px 10px 21px rgb(133 146 170 / 6%), 0px 2px 7px rgb(133 146 170 / 6%),
+    0px 0px 2px rgb(133 146 170 / 6%);
+  border-radius: 6px;
+  margin: 0;
+}
+
+.welbex-settings__payment__current-licence-duration {
+  width: fit-content;
+  width: intrinsic;
+  width: -moz-max-content;
+  margin-bottom: 40px;
+  padding: 15px 8px;
+  background-color: #ebffee;
+  border-radius: 6px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 23px;
+  color: #26643b;
+}
+
+.welbex-settings__payment__choose-licence-duration {
+  margin-bottom: 30px;
+  font-family: Euclid Circular A, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 25px;
+  color: #546982;
+}
+
+.select-payment-option-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.welbex-settings__payment-page__payment__tariffs::after {
+  position: absolute;
+  content: "";
+  width: 486px;
+  height: 5px;
+  background: #f5f5f5;
+  top: 31%;
+  left: 54px;
+  z-index: 0;
+}
+
+.welbex-settings__payment-page__payment__tariffs.--moreTariffs::after {
+  width: 500px;
+}
+
+@media screen and (max-width: 1350px) {
+  .select-payment-option-wrapper {
+    flex-direction: column;
+  }
+  .welbex-settings__payment-page__payment__tariffs {
+    margin-bottom: 20px;
+  }
+}
+
+.welbex-settings__payment-page__payment__tariffs {
+  display: flex;
+  position: relative;
+  margin-top: 0;
+  justify-content: space-between;
+  width: 594px;
+}
+
+.welbex-settings__payment-page__payment__tariffs__item {
+  box-sizing: border-box;
+  width: 125px;
+  height: 195px;
+  margin: 0;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  transition: 0.3s;
+  cursor: pointer;
+  z-index: 1;
+  padding: 12px 8px;
+  -webkit-transition: transform 0.3s ease-out 0s;
+  transition: transform 0.3s ease-out 0s;
+}
+
+.welbex-settings__payment-page__payment__tariffs
+  .welbex-settings__payment-page__payment__tariffs__item:hover {
+  border: none;
+}
+
+.welbex-settings__payment-page__payment__tariffs
+  .welbex-settings__payment-page__payment__tariffs__item--current {
+  border: none;
+}
+
+.welbex-settings__payment-page__payment__tariffs__item--current {
+  box-sizing: border-box;
+  width: 125px;
+  z-index: 1;
+  margin-top: 0;
+  -webkit-transition: left 0.3s ease-out 0s;
+  transition: left 0.3s ease-out 0s;
+}
+
+.welbex-settings__payment-page__payment__tariffs__item__description {
+  margin-bottom: 20px;
+  color: #749e42;
+  font-size: 18px;
+  line-height: 20px;
+  text-align: center;
+  display: block;
+  height: 20px;
+}
+
+.welbex_ad_settings__page-payment-wrapper {
+  position: relative;
+}
+
+.welbex__payment-tariffs__current-frame {
+  box-sizing: border-box;
+  position: absolute;
+  width: 125px;
+  height: 195px;
+  outline: 2px solid #749e42;
+  z-index: 1;
+  margin-top: 0;
+  -webkit-transition: transform 0.3s ease-out 0s;
+  transition: transform 0.3s ease-out 0s;
+  left: 0;
+  top: 31px;
+}
+
+.welbex__payment-tariffs__current-frame.--moreTariffs {
+  width: 100px;
+}
+
+.welbex_ad_settings__page-payment-wrapper
+  .welbex__payment-tariffs__current-frame {
+  display: none;
+  left: 21px;
+  top: 173px;
+}
+
+.welbex-settings__payment-page__payment__tariffs__item__title {
+  position: relative;
+  margin-bottom: 50px;
+  text-align: center;
+  font-size: 18px;
+  color: #2e3640;
+}
+
+.welbex-settings__payment-page__payment__tariffs__item__title::before {
+  position: absolute;
+  content: "";
+  width: 22px;
+  height: 22px;
+  top: 38px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  background: #f5f5f5;
+  z-index: -2;
+}
+
+.payment__tariffs__item--current
+  .welbex-settings__payment-page__payment__tariffs__item__title::after {
+  content: "";
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 19px;
+  z-index: -2;
+  background: #fff;
+  border: 2px solid #749e42;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAAKCAYAAABv7tTEAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA25pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpkNzQ0NDQyNS00MTk4LTQ5NTItYmY1Yy0yZmZkYTg0NDM4ODAiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MEY1OTI3Q0VGQjg0MTFFM0E2MjM4NUE4OTJDRUYyRUEiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MEY1OTI3Q0RGQjg0MTFFM0E2MjM4NUE4OTJDRUYyRUEiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoxQzMxMTA1N0Q3RkFFMzExQUQyNjgwQjk0MTdBNDJENyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpkNzQ0NDQyNS00MTk4LTQ5NTItYmY1Yy0yZmZkYTg0NDM4ODAiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz469ukgAAAAxElEQVR42mIsmefEQCQwAeImIA5jIVKDPhDvBGIhIF7FRIQGLSDeDdXwDYi7QZp4gDgfiBmxaFAB4j1ALArEv4A4GIj3g5y3Cog9gVgWiEuQNCiCFACxJFRDGBDvAEmAbJoBxH+BuBjqURCQAeK9UBokFwPEG2GmMVv5K96EutUNiO2BmAuIO4BYGaohEYiXI7sZFno9QKwExJlAXAYV+w/E6UC8GN2jyKGXC8RbkDTkAfFcbMGJHE8wt6+C4rm44gAgwADAviPnBDMEbwAAAABJRU5ErkJggg==);
+}
+
+.welbex-settings__payment-page__payment__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  min-width: 262px;
+}
+
+.welbex-settings__payment-page__payment__info__text {
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.welbex-settings__payment-page__payment__info__price {
+  margin-bottom: 22px;
+  font-size: 44px;
+  height: 44px;
+  color: #158fd2;
+  font-family: "Open Sans", sans-serif;
+}
+
+.welbex-settings__payment-page__payment__tariffs__item__price {
+  font-size: 15px;
+}
+
+.welbex-settings__payment-page__payment__buy-btn {
+  width: 240px;
+  min-height: 35px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  letter-spacing: 1.1px;
+  font-weight: 700;
+  font-family: "PT Sans", Arial, sans-serif;
+  border: 1px solid #4077d6;
+  background: #4c8bf7;
+  color: #fff;
+}
+
+.welbex-settings__payment-page__payment__buy-btn:hover {
   background-color: #3c7dec;
 }
